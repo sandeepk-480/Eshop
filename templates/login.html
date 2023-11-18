@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% block body %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{error}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+
+    <section id="form" style = "margin-left: 40%; margin-top: -40px;"><!--form-->
+        <div class="container">
+            <div class="col-sm-4 ">
+                <div class="login-form"><!--login form-->
+                    <h2><b><u>Login to your account</u></b></h2>
+                    <form action="/users/login/" method="post">
+                        {% csrf_token %}
+                        <p>Enter Your Username: </p>
+                        <input type="text" name = 'username' placeholder="Username" />
+                        <p>Enter Your Password:</p>
+                        <input type="password" name='password' placeholder="Password" />
+                        <button type="submit" class="btn btn-default btn-block">Login</button>
+                        <button type="button" class="btn btn-default btn-block" onclick="window.location.href='{% url 'signup' %}'">Sign up</button>
+
+                    </form>
+                </div><!--/login form-->
+            </div>
+        </div>
+    </section><!--/form-->
+{% endblock  %}
